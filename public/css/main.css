@@ -1,0 +1,57 @@
+body{
+    background-color: #F2F0F1;
+}
+.coll {
+    width: 40%; /* tamanho colunas horizontal*/
+    float: left;
+    margin-top: 50px;
+    text-align: center;
+    padding-left: 100px;
+}
+
+.roww:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.tituloproduto {
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    float: left;
+}
+
+form {
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .coll{
+        width: 50%; /* tamanho colunas horizontal*/
+        float: left;
+        margin-top: 50px;
+        text-align: center;
+        padding-left: 10px;
+    }
+    form{
+        float: left;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .coll{
+        width: 100%; /* tamanho colunas horizontal*/
+        float: left;
+        margin-top: 10px;
+        text-align: center;
+        padding-left: 10px;
+    }
+    form{
+        float: none;
+        margin-left: 10px;
+        margin-right: 10px;
+        
+    }
+}

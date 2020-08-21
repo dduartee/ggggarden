@@ -1,0 +1,190 @@
+body {
+    background-color: #F2F0F1;
+}
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.item {
+    margin-top: 15px;
+    width: 33%;
+}
+
+.search-icon {
+    width: 25px;
+    float: left;
+    margin-left: 70px;
+    margin-right: 20px;
+}
+
+.search-box {
+    border: none;
+    float: left;
+}
+
+.carrinho {
+    float: right;
+    margin-right: 90px;
+    width: 30px;
+}
+
+.logo {
+    width: 60%;
+}
+
+.logo {
+    width: 55%;
+    margin-top: 15px;
+}
+
+.coll {
+    width: 33%;
+}
+
+.roww {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    width: 90%;
+    flex-flow: wrap;
+}
+
+.mol {
+    width: 90%;
+    opacity: 1;
+    transition-duration: 300ms;
+}
+
+.mol:hover {
+    opacity: 0.8;
+    transition-duration: 300ms;
+}
+
+.slogan {
+    margin-top: 25px;
+    font-size: 1em;
+    width: 100%;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1440px) {
+    .logo {
+        width: 60%;
+    }
+
+    .item {
+        margin-top: 15px;
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 70%;
+    }
+
+    .roww {
+        width: 100%
+    }
+}
+
+@media screen and (max-width: 890px) {
+    .search-icon {
+        width: 25px;
+        float: left;
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+
+    .carrinho {
+        float: right;
+        margin-right: 40px;
+        width: 25px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .roww {
+        width: 100%;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .coll {
+        width: 50%;
+    }
+
+    .mol {
+        width: 90%;
+    }
+
+    .search-icon {
+        width: 25px;
+        float: left;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .carrinho {
+        float: right;
+        margin-right: 30px;
+        width: 25px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .logo {
+        width: 70%;
+    }
+
+    .coll {
+        width: 50%;
+    }
+
+    .mol {
+        width: 100%;
+    }
+
+
+    .item {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+    .coll {
+        width: 100%;
+    }
+
+    .mol {
+        width: 90%;
+    }
+
+    .mol:hover {
+        width: 50%;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .logo {
+        width: 90%;
+    }
+
+    .coll {
+        width: 100%;
+    }
+
+    .mol {
+        width: 90%;
+    }
+
+}
