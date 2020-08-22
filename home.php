@@ -9,9 +9,15 @@ require './src/conexao.php'
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>GARDEN</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+<<<<<<< HEAD
   <link rel='stylesheet' type='text/css' media='screen' href='/public/css/index.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='/public/css/header.css'>
   <link rel="icon" href="/public/img/logo.png" type="image/x-icon">
+=======
+  <link rel='stylesheet' type='text/css' media='screen' href='public/css/index.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='public/css/header.css'>
+  <link rel="icon" href="img/logo.png" type="image/x-icon">
+>>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -23,6 +29,7 @@ require './src/conexao.php'
   <center>
     <div class="header">
       <div class="item">
+<<<<<<< HEAD
         <img src="/public/img/search.png" class="search-icon" onclick="ocultarPesquisa()">
         <input type="text" class="search-box" id="search-box" style="display: block;" length="100" placeholder="Pesquisar">
       </div>
@@ -31,6 +38,16 @@ require './src/conexao.php'
       </div>
       <div class="item">
         <a href="/carrinho"><img class="carrinho" src="/public/img/carrinho.png"></a>
+=======
+        <img src="public/img/search.png" class="search-icon" onclick="ocultarPesquisa()">
+        <input type="text" class="search-box" id="search-box" style="display: block;" length="100" placeholder="Pesquisar">
+      </div>
+      <div class="item">
+        <a href="/"><img class="logo" src="public/img/logo.png"></a>
+      </div>
+      <div class="item">
+        <a href="/carrinho"><img class="carrinho" src="public/img/carrinho.png"></a>
+>>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
       </div>
       <br>
     </div>
@@ -39,11 +56,18 @@ require './src/conexao.php'
       <?php
       $sql = "SELECT * FROM produtos";
       $query = mysqli_query($link, $sql) or die(mysqli_error($link));
+<<<<<<< HEAD
       while ($array = mysqli_fetch_assoc($query)) { 
       $imagens = explode(', ', $array['imagem']);?>
         <div class="coll">
           <a href='<?php echo $array["uri"] ?>'>
             <img class="mol" src="/public/img/<?php echo $imagens[0] ?>">
+=======
+      while ($array = mysqli_fetch_assoc($query)) { ?>
+        <div class="coll">
+          <a href='<?php echo $array["tipo"] ?>/<?php echo $array["nome"] ?>'>
+            <img class="mol" src="public/img/<?php echo $array['imagem'] ?>">
+>>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
           </a>
         </div>
       <?php } ?>

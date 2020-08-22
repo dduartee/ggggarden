@@ -1,63 +1,12 @@
-<<<<<<< HEAD
-<?php
-        if (isset($_POST['enviar'])) {
-            $tamanho = $_POST['tamanho'];
-            $id = '8';
-            if ($id == 8) { //CINZA
-                if ($tamanho == 'P') {
-        ?><script>
-                        window.location.href = "https://pag.ae/7W1KbetYM"
-                    </script><?php
-                            } else {
-                                if ($tamanho == 'M') {
-                                ?><script>
-                            window.location.href = "https://pag.ae/7W1Kcd9g6"
-                        </script><?php
-                                } else {
-                                    if ($tamanho == 'G') {
-                                    ?><script>
-                                window.location.href = "https://pag.ae/7W1KcEBS4"
-                            </script><?php
-                                    } else {
-                                        if ($tamanho == 'GG') {
-                                        ?><script>
-                                    window.location.href = "https://pag.ae/7W1Kd29NH"
-                                </script><?php
-                                        } else {
-                                            ?>
-                                <script>
-                                    notifire({
-                                        msg: 'Selecione o tamanho do produto!',
-                                        types: 'warning',
-                                        color: 'black',
-                                        timeout: 3000
-                                    });
-                                </script><?php
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                                            ?>
-=======
->>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<<<<<<< HEAD
-    <title>Moletom "<?php print $nome; ?>" - GARDEN</title>
+    <title>Camiseta "AS MENINAS SUPER NOIAS" - GARDEN</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/public/css/main.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/notiFire.css'>
-=======
-    <title>Moletom "ALUMINUM" - GARDEN</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/main.css'>
->>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
     <link rel='stylesheet' type='text/css' media='screen' href='/public/css/header.css'>
     <link rel="icon" href="/public/img/logo.png" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -68,28 +17,33 @@
 
 <body>
     <center>
-        <div class="header">
-            <div class="item">
-                <img src="/public/img/search.png" class="search-icon">
-                <input type="text" class="search-box" id="search-box" style="display: block;" length="100" placeholder="Pesquisar">
-            </div>
-            <div class="item">
-                <a href="/"><img class="logo" src="/public/img/logo.png"></a>
-            </div>
-            <div class="item">
-                <a href="/carrinho"><img class="carrinho" src="/public/img/carrinho.png"></a>
-            </div>
-            <br>
-        </div>
+        <a href="/"><img class="logo" src="/public/img/logo.png"></a>
         <div class="roww">
             <div class="coll">
+
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/public/img/<?php echo $imagem; ?>" class="d-block w-100">
+                            <img src="/public/img/<?php print $imagem; ?>" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/public/img/camiseta-supernoia-costas.png" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/public/img/slogan-supernoias.png" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/public/img/slogan-costas-supernoias.png" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/public/img/tamanhos-supernoias.png" class="d-block w-100">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -103,17 +57,9 @@
                 </div>
             </div>
             <div class="coll" style="margin-left: 0px;">
-                <span class="tituloproduto"><?php print $nome; ?></span><br><br><br>
+                <span class="tituloproduto" style="font-size: 35px;"><?php print $nome; ?></span><br><br><br>
                 <form method="POST">
                     <p>Por favor, selecione o tamanho: </p>
-<<<<<<< HEAD
-                    <?php $tamanho = explode(', ', $tamanhos);
-                    foreach ($tamanho as $value) {?>
-                        <input type="radio" id="<?php print $value; ?>" name="tamanho" value="<?php print $value; ?>" required="Selecione um tamanho">
-                        <label for="<?php print $value; ?>"><?php print $value; ?></label><br>
-                    <?php } ?>
-                    <br>
-=======
                     <input type="radio" id="P" name="tamanho" value="P">
                     <label for="P">P</label><br>
                     <input type="radio" id="M" name="tamanho" value="M">
@@ -122,56 +68,54 @@
                     <label for="G">G</label><br>
                     <input type="radio" id="GG" name="tamanho" value="GG">
                     <label for="GG">GG</label><br><br>
->>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
-                    <button type="submit" class="btn btn-dark" style="width: 100%;" name="enviar">Comprar com
-                        PagSeguro</button>
+                    <button type="submit" class="btn btn-dark" style="width: 100%" name="enviar">Comprar com PagSeguro</button>
                 </form>
             </div>
+
         </div>
         <br>
-<<<<<<< HEAD
-        <script src="/public/js/notiFire.js"></script>
-=======
         <?php
         if (isset($_POST['enviar'])) {
             $tamanho = $_POST['tamanho'];
-            $id = '8';
-            if ($id == 8) { //CINZA
-                if ($tamanho == 'P') {
+            $id = '7';
+            if ($id == 7) {
+                if ($tamanho == 'PG') {
         ?><script>
-                        window.location.href = "https://pag.ae/7W1KbetYM"
+                        window.location.href = "/"
                     </script><?php
                             } else {
-                                if ($tamanho == 'M') {
+                                if ($tamanho == 'P') {
                                 ?><script>
-                            window.location.href = "https://pag.ae/7W1Kcd9g6"
+                            window.location.href = "https://pag.ae/7W3yV2TSa "
                         </script><?php
                                 } else {
-                                    if ($tamanho == 'G') {
+                                    if ($tamanho == 'M') {
                                     ?><script>
-                                window.location.href = "https://pag.ae/7W1KcEBS4"
+                                window.location.href = "https://pag.ae/7W3yVD6G3 "
                             </script><?php
                                     } else {
-                                        if ($tamanho == 'GG') {
+                                        if ($tamanho == 'G') {
                                         ?><script>
-                                    window.location.href = "https://pag.ae/7W1Kd29NH"
+                                    window.location.href = "https://pag.ae/7W3yW82xQ "
                                 </script><?php
                                         } else {
+                                            if ($tamanho == 'GG') {
                                             ?><script>
-                                    alert('Selecione o tamanho do produto!');
-                                </script><?php
+                                        window.location.href = "https://pag.ae/7W3yWuLg3"
+                                    </script><?php
+                                            } else {
+                                                ?><script>
+                                        alert('Selecione o tamanho do produto!');
+                                    </script><?php
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                                            ?>
-        <h2></h2>
-        <p></p>
-        </div>
->>>>>>> faa6b54d7b473886a6a9ebbbcc6a707a431f5c30
-        <script>
+                                                ?>
+                                                        <script>
             function ocultarPesquisa(x) {
                 if (x.matches) {
                     document.getElementById("search-box").style.display = "none";
