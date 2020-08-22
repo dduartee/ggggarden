@@ -6,10 +6,10 @@
  * @param $args   - Associative array of variables to pass to the template file.
  * @return string - Output of the template file. Likely HTML.
  */
-function template( $file, $args ){
+function render( $file, $args ){
   // ensure the file exists
     if ( !file_exists( $file ) ) {
-    return 'Arquivo nao existe';
+      return null;
   }
 
   // Make values in the associative array easier to access by extracting them

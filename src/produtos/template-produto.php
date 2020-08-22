@@ -28,9 +28,15 @@
         window.location.href = "https://pag.ae/7W3yWuLg3"
         </script><?php
                                             } else {
-                                                ?><script>
-        alert('Selecione o tamanho do produto!');
-        </script><?php
+                                                ?>
+                                <script>
+                                    notifire({
+                                        msg: 'Selecione o tamanho do produto!',
+                                        types: 'warning',
+                                        color: 'black',
+                                        timeout: 3000
+                                    });
+                                </script><?php
                                             }
                                         }
                                     }
