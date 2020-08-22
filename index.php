@@ -9,10 +9,10 @@ switch ( $request[0] ) {
     require 'home.php';
     break;
     case 'moletom' :
-        require 'src/router.php';
+        require 'src/produtos/router.php';
     break;
     case 'camiseta' :
-        require 'src/router.php';
+        require 'src/produtos/router.php';
     break;
     case 'carrinho' :
         require 'carrinho.php';

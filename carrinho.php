@@ -4,7 +4,6 @@ session_start();
 if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = array();
 }
-
 //adicionar produto
 if (isset($_GET['acao'])) {
     //adicionar carrinho
