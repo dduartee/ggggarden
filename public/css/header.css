@@ -23,7 +23,7 @@ body {
 .search-box {
     border: none;
     float: left;
-    background-color: black;
+    /*background-color: black;*/
     border-radius: 5px;
 }
 

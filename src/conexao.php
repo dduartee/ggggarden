@@ -4,4 +4,4 @@ define('USUARIO', 'root');
 define('SENHA', '');
 define('DB', 'garden_db');
 
-$link = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Erro no banco de dados');
+$link = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Erro na conexão do banco de dados');
