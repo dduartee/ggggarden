@@ -1,5 +1,4 @@
 <?php
-session_start();
 session_destroy();
 unset($_SESSION['nome']);
 if (isset($_POST['entrar'])) {
@@ -16,7 +15,7 @@ if (isset($_POST['entrar'])) {
     require __DIR__ . '/../conexao.php';
     $email = mysqli_real_escape_string($link, $_POST['email']);
     $senha = md5(mysqli_real_escape_string($link, $_POST['senha']));
-    $sql_logar = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
+    $sql_logar = "SELECT * FROM usuarios WHERE email='" . $email . "' AND senha='" . $senha . "'";
     $query_logar = mysqli_query($link, $sql_logar);
     $array_logar = mysqli_fetch_array($query_logar);
     if (!isset($array_logar['email'])) {
@@ -26,10 +25,17 @@ if (isset($_POST['entrar'])) {
         header('Location: /auth/login');
         die();
     } else { // login sucesso
-        require 'gerar-token.php';
-        $token = gerarToken($array_logar['id'], $array_logar['nome'], $array_logar['email']);
-        echo '<script>localStorage.setItem("token_jwt","'.$token.'");</script>';
-        echo '<script>location.href="/auth/successful";</script>';
+        [$id, $token] = gerarToken();
+        $sql_inserirtoken = "UPDATE usuarios SET token_id = '" . $id . "', token = '" . $token . "' WHERE email='" . $email . "' AND senha='" . $senha . "'";
+        $query_inserirtoken = mysqli_query($link, $sql_inserirtoken);
+        if ($query_inserirtoken) {
+            $cookieToken = gerarCookie($id, $token);
+            $expire = (time() + (30 * 24 * 3600));
+            echo 'token atualizado';
+            setcookie('auth', json_encode($cookieToken), $expire, '/');
+            header('Location: /');
+        }
+        die();
     }
 }
 ?>
@@ -40,9 +46,6 @@ if (isset($_POST['entrar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | GARDEN</title>
     <script src="/public/js/jquery-3.5.1.min.js"></script>
-    <script>
-        localStorage.removeItem('token_jwt');
-    </script>
 </head>
 
 <body>
@@ -55,7 +58,7 @@ if (isset($_POST['entrar'])) {
     <?php if (isset($_SESSION['aviso'])) { ?>
         <script>
             notifire({
-                msg: '<?php echo $_SESSION['aviso']; unset($_SESSION['aviso']); ?>',
+                msg: "<?php echo $_SESSION['aviso']; unset($_SESSION['aviso']); ?>",
                 types: 'warning',
                 color: 'black',
                 timeout: 1000

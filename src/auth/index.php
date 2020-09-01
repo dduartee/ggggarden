@@ -1,4 +1,6 @@
 <?php
+
+
 $request = explode('/', strtolower(substr($_SERVER['REQUEST_URI'], 1)));
 switch ( $request[1] ) {
     case 'login' :
@@ -12,12 +14,6 @@ switch ( $request[1] ) {
     break;
     case 'cadastro?p=2' :
         require 'cadastro.php';
-    break;
-    case 'verify' :
-        require 'verificar-token.php';
-    break;
-    case 'successful' :
-        require 'successful.php';
     break;
     default:
     require __DIR__.'/../template-render.php';
