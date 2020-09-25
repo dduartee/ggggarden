@@ -6,7 +6,11 @@ $template = __DIR__ . '/template-produto.php';
 $error =  __DIR__ .'/../template-error.php';
 $output = '';
 $uri = strtolower(substr($_SERVER['REQUEST_URI'], 1)); // 1 moletom/camiseta :/: 2 nome
-[$validacao, $nome, $token] = validarToken($_COOKIE['auth'], $link);
+if(isset($_COOKIE['auth'])) {
+    [$validacao, $nome, $token] = validarToken($_COOKIE['auth'], $link);
+} else {
+    [$validacao, $nome, $token] = array(0, null, null);
+}
 function renderItem($uri, $link) {
     $sql = "SELECT * FROM produtos WHERE uri='$uri'"; // selecione tudo de produtos onde uri é igual a uri recebida
     $query = mysqli_query($link, $sql) or die(mysqli_error($link));

@@ -1,0 +1,16 @@
+.cadastro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+.cadastro .parte{
+    width: 250px;
+}
+.cadastro .parte input {
+    margin-top: 10px;
+    width: 250px;
+}

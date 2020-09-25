@@ -1,5 +1,4 @@
-<center>
-<div class="header">
+<header class="header">
       <div class="item">
         <img src="/public/img/search.png" class="search-icon" onclick="ocultarPesquisa()">
         <input type="text" class="search-box" id="search-box" style="display: block;" length="100" placeholder="Pesquisar">
@@ -17,8 +16,9 @@
             <?php } else { ?>
               <a href="/auth/login">Login</a>
               <a href="#">|</a>
-              <a href="/auth/cadastrar">Cadastrar</a>
+              <a href="/auth/cadastro">Cadastrar</a>
             </div>
             <?php } ?>
       <br>
     </div>
+            </header>

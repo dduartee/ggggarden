@@ -3,7 +3,6 @@ session_destroy();
 if (isset($_SESSION['login'])) {
     unset($_SESSION['login']);
 }
-require 'src/template-render.php';
 $p1 =  'cadastrop1.php';
 $error =  __DIR__ . '/../template-error.php';
 $parte = '1';
@@ -55,7 +54,7 @@ if (isset($_GET['p'])) { // se tiver o p
         $estado = mysqli_real_escape_string($link, $_POST['estado']);
         $cpf = mysqli_real_escape_string($link, $_POST['cpf']);
         //comandos
-        $sql_verificar = "SELECT email FROM usuarios WHERE email='$email'"; // verificar se usuario ja existe
+        $sql_verificar = "SELECT email FROM usuarios WHERE email='{$email}'"; // verificar se usuario ja existe
         $query_verificar = mysqli_query($link, $sql_verificar);
         $array_verificar = mysqli_fetch_array($query_verificar); // retorna o email de verificação
         //TODO
@@ -70,7 +69,7 @@ if (isset($_GET['p'])) { // se tiver o p
             $aviso = 'Senhas não conferem';
             $_SESSION['aviso'] = $aviso;
         } else {
-            $sql_cadastrar = "INSERT INTO usuarios (nome,email,senha,numero,endereco,bairro,cep,estado,cpf) VALUES ('$nome', '$email', '$senha', '$numero', '$endereco', '$bairro', '$cep', '$estado', '$cpf')";
+            $sql_cadastrar = "INSERT INTO usuarios (nome,email,senha,numero,endereco,bairro,cep,estado,cpf) VALUES ('{$nome}', '{$email}', '{$senha}', '{$numero}', '{$endereco}', '{$bairro}', '{$cep}', '{$estado}', '{$cpf}')";
             $query_cadastrar = mysqli_query($link, $sql_cadastrar);
             if ($query_cadastrar) {
                 $parte = null;
@@ -89,29 +88,30 @@ if (isset($_GET['p'])) { // se tiver o p
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/cadastro.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/public/css/header.css'>
     <link rel="icon" href="/public/img/logo.png" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>garden | Cadastro</title>
+    <title>Cadastro | GARDEN</title>
 </head>
 
 <body>
-    <div class="formulario">
+<?php require __DIR__.'/../header.php';?>
+    <div class="cadastro">
         <?php
         if ($parte == '1') {
         ?>
-            <form method="POST" action="?p=2">
+            <form class="parte" method="POST" action="?p=2">
                 <input class="input-form" type="text" name="nome" placeholder="Nome" required>
                 <input class="input-form" type="email" name="email" placeholder="E-mail" required>
-                <input class="input-button-1" type="submit" name="enviar" value="Prosseguir">
-                <a href="login.php"><input class="input-button-2" type="button" value="Entrar na minha conta"></a>
+                <input class="input-button" type="submit" name="enviar" value="Prosseguir">
+                <a href="/auth/login"><input class="input-button-2" type="button" value="Entrar na minha conta"></a>
             </form>
         <?php } else  if ($parte == '2') { ?>
-            <form method="POST" action="/auth/cadastro">
+            <form method="POST" class="parte" action="/auth/cadastro">
                 <input class="input-form" type="text" name="nome" placeholder="Nome" required value="<?php echo $nome ?>" readonly>
                 <input class="input-form" type="email" name="email" placeholder="E-mail" required value="<?php echo $email ?>" readonly>
                 <input class="input-form" type="number" name="numero" placeholder="Número" required>
@@ -122,16 +122,17 @@ if (isset($_GET['p'])) { // se tiver o p
                 <input class="input-form" type="text" name="cpf" placeholder="CPF" required>
                 <input class="input-form" type="password" name="senha" placeholder="Senha" required>
                 <input class="input-form" type="password" name="confirmarsenha" placeholder="Confirme a sua senha" required>
-                <input class="input-button-1" type="submit" name="enviar" value="Cadastrar">
-                <input class="input-button-1" type="button" value="Voltar" onclick="window.location.href='?p=1'">
+                <input class="input-button" type="submit" name="enviar" value="Cadastrar">
+                <input class="input-button" type="button" value="Voltar" onclick="window.location.href='?p=1'">
             </form>
         <?php } ?>
     </div>
+
     <script src="/public/js/notiFire.js"></script>
     <?php if (isset($_SESSION['aviso'])) { ?>
         <script>
             notifire({
-                msg: '<?php echo $_SESSION['aviso'] ?>',
+                msg: '<?php echo $_SESSION["aviso"] ?>',
                 types: 'warning',
                 color: 'black',
                 timeout: 1000

@@ -1,5 +1,4 @@
 <?php
-session_destroy();
 unset($_SESSION['nome']);
 if (isset($_POST['entrar'])) {
     foreach ($_POST as $key => $value) {

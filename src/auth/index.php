@@ -3,6 +3,9 @@
 
 $request = explode('/', strtolower(substr($_SERVER['REQUEST_URI'], 1)));
 switch ( $request[1] ) {
+    case 'logout' :
+        require 'logout.php';
+    break;
     case 'login' :
         require 'login.php';
     break;
@@ -16,7 +19,7 @@ switch ( $request[1] ) {
         require 'cadastro.php';
     break;
     default:
-    require __DIR__.'/../template-render.php';
+    //require __DIR__.'/../template-render.php';
     $error =  __DIR__.'/../template-error.php';
 
     print render($error, array('error' => 'Página não existe', 'code' => '404'));

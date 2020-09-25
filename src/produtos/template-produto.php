@@ -41,22 +41,14 @@ if (isset($_POST['enviar'])) {
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title><?php echo $args[0]['tipo']; ?> "<?php echo $args[0]['nome']; ?>" - GARDEN</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/public/css/index.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/public/css/header.css'>
-    <link rel="icon" href="/public/img/logo.png" type="image/x-icon">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <?php require __DIR__ . '/../head.php' ?>
 </head>
 
 <body>
-    <center>
-        <?php require __DIR__.'/../header.php';?>
+    <?php require __DIR__ . '/../header.php'; ?>
     <br>
     </div>
     <div class="roww">
@@ -72,7 +64,7 @@ if (isset($_POST['enviar'])) {
                     <?php } ?>
                 </ol>
                 <?php
-                if (sizeof($imagens) < 2) {?>
+                if (sizeof($imagens) < 2) { ?>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="/public/img/<?php echo $imagens[0]; ?>" class="d-block w-100">
@@ -91,7 +83,7 @@ if (isset($_POST['enviar'])) {
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e&quot;);" data:image="" svg+xml,%3csvg="" xmlns="http://www.w3.org/2000/svg" fill="%23000" width="8" height="8" viewbox="0 0 8 8" %3e%3cpath="" d="M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z" %3e%3c="" svg%3e")="" "=""></span>
-            <span class=" sr-only">Previous</span>
+                <span class=" sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e&quot;);"></span>
@@ -100,7 +92,8 @@ if (isset($_POST['enviar'])) {
                     </div>
             </div>
             <div class="coll" style="margin-left: 0px;">
-                <span class="tituloproduto" style="font-size: 35px;"><?php print $args[0]['nome']; ?></span><br><br><br>
+                <span class="tituloproduto" style="font-size: 35px;"><?php print $args[0]['tipo']; ?>
+                    "<?php print $args[0]['nome']; ?>"</span><br><br><br>
                 <form method="POST">
                     <p>Por favor, selecione o tamanho: </p>
                     <?php $tamanho = explode(', ', $args[0]['tamanhos']);

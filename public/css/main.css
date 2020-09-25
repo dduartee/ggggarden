@@ -1,8 +1,10 @@
-body{
+body {
     background-color: #F2F0F1;
 }
+
 .coll {
-    width: 40%; /* tamanho colunas horizontal*/
+    width: 40%;
+    /* tamanho colunas horizontal*/
     float: left;
     margin-top: 50px;
     text-align: center;
@@ -13,7 +15,8 @@ body{
     content: "";
     display: table;
     clear: both;
-  }
+}
+
 .tituloproduto {
     font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
@@ -27,31 +30,36 @@ form {
 }
 
 @media screen and (max-width: 1024px) {
-    .coll{
-        width: 50%; /* tamanho colunas horizontal*/
+    .coll {
+        width: 50%;
+        /* tamanho colunas horizontal*/
         float: left;
         margin-top: 50px;
         text-align: center;
         padding-left: 10px;
     }
-    form{
+
+    form {
         float: left;
         margin-left: 10px;
         margin-right: 10px;
     }
 }
+
 @media screen and (max-width: 425px) {
-    .coll{
-        width: 100%; /* tamanho colunas horizontal*/
+    .coll {
+        width: 100%;
+        /* tamanho colunas horizontal*/
         float: left;
         margin-top: 10px;
         text-align: center;
         padding-left: 10px;
     }
-    form{
+
+    form {
         float: none;
         margin-left: 10px;
         margin-right: 10px;
-        
+
     }
 }

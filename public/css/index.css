@@ -65,7 +65,20 @@ body {
     opacity: 0.8;
     transition-duration: 300ms;
 }
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
 
+.itemmain {
+    width: 75%;
+    animation: comeco 0.5s;
+    padding: 10px;
+}
 .slogan {
     margin-top: 25px;
     font-size: 1em;
@@ -139,7 +152,15 @@ body {
         width: 25px;
     }
 }
+@media screen and (max-width: 590px) {
+    .main {
+        flex-direction: column;
+    }
 
+    .main #logo {
+        order: -1;
+    }
+}
 @media screen and (max-width: 425px) {
     .logo {
         width: 70%;

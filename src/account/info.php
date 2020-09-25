@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +8,6 @@
 </head>
 <body>
     <?php var_dump($_COOKIE['auth']) ?>
+    <a href="/auth/logout">Sair</a>
 </body>
 </html>

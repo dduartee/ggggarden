@@ -4,8 +4,12 @@ body {
 
 .header {
     display: flex;
-    flex-flow: row nowrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    align-content: stretch;
+    align-items: flex-start;
+    text-align: center;
 }
 
 .item {
@@ -23,7 +27,6 @@ body {
 
 .search-box {
     float: left;
-    background-color: black;
     border-radius: 5px;
 }
 
